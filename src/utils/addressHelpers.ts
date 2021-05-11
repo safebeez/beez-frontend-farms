@@ -6,7 +6,7 @@ export const getCakeAddress = () => {
   return addresses.cake[chainId]
 }
 export const getBeeAddress = () => {
-  return addresses.cake[chainId]
+  return addresses.bee[chainId]
 }
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]
