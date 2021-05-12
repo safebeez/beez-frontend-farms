@@ -59,8 +59,8 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="secondary">
-          {TranslateString(576, 'The Hive')}
+        <Heading as="h1" size="xl" mb="24px" color="danger">
+          {TranslateString(576, 'The Honey Hive')}
         </Heading>
         <Text>{TranslateString(578, 'Top 3 best DEFI app on Binance Smart Chain.')}</Text>
       </Hero>
