@@ -1,5 +1,5 @@
 import { MenuEntry } from 'beez-uikit'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getCakeAddress, getBeeAddress } from 'utils/addressHelpers'
 
 const config: MenuEntry[] = [
   {
@@ -12,12 +12,20 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange',
-        href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency='.concat(getCakeAddress()),
+        label: 'Exchange HNY',
+        href: 'https://safebeez.github.io/#/swap?outputCurrency='.concat(getCakeAddress()),
       },
       {
-        label: 'Liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/add/',
+        label: 'HNY Liquidity',
+        href: 'https://safebeez.github.io/beez-frontend-amm/#/add/'.concat(getCakeAddress()).concat('/BNB'),
+      },
+      {
+        label: 'Exchange BEEZ',
+        href: '?outputCurrency='.concat(getBeeAddress()),
+      },
+      {
+        label: 'Liquidity: BEEZ',
+        href: 'https://safebeez.github.io/beez-frontend-amm/#/add/'.concat(getBeeAddress()).concat('/BNB'),
       },
     ],
   },
@@ -41,11 +49,11 @@ const config: MenuEntry[] = [
       },
       /* {
         label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/goose-finance',
+        href: 'https://www.coingecko.com/en/e',
       },
       {
         label: 'CoinMarketCap',
-        href: 'https://coinmarketcap.com/currencies/goose-finance/',
+        href: 'https://coinmarketc',
       },
       {
         label: 'AstroTools',
@@ -59,7 +67,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Docs',
-        href: 'https://goosedefi.gitbook.io/goose-finance/',
+        href: 'https://gnce/',
       }
     ],
   }, */
