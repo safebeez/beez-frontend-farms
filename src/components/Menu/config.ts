@@ -13,7 +13,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange HNY',
-        href: 'https://safebeez.github.io/#/swap?outputCurrency='.concat(getCakeAddress()),
+        href: 'https://safebeez.github.io/beez-frontend-amm/#/swap?outputCurrency='.concat(getCakeAddress()),
       },
       {
         label: 'HNY Liquidity',
@@ -21,7 +21,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Exchange BEEZ',
-        href: '?outputCurrency='.concat(getBeeAddress()),
+        href: 'https://safebeez.github.io/beez-frontend-amm/#/swap?outputCurrency='.concat(getBeeAddress()),
       },
       {
         label: 'Liquidity: BEEZ',
