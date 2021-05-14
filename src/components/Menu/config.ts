@@ -13,19 +13,19 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange HNY',
-        href: 'https://safebeez.github.io/beez-frontend-amm/#/swap?outputCurrency='.concat(getCakeAddress()),
+        href: '/v2swap',
       },
       {
         label: 'HNY Liquidity',
-        href: 'https://safebeez.github.io/beez-frontend-amm/#/add/'.concat(getCakeAddress()).concat('/BNB'),
+        href: '/v2liquidity',
       },
       {
         label: 'Exchange BEEZ',
-        href: 'https://safebeez.github.io/beez-frontend-amm/#/swap?outputCurrency='.concat(getBeeAddress()),
+        href: '/v1swap',
       },
       {
         label: 'Liquidity: BEEZ',
-        href: 'https://safebeez.github.io/beez-frontend-amm/#/add/'.concat(getBeeAddress()).concat('/BNB'),
+        href: '/v1liquidity',
       },
     ],
   },

@@ -12,6 +12,10 @@ import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
 const Home = lazy(() => import('./views/Home'))
+const SwapV2 = lazy(() => import('./views/v2swap'))
+const LiquidityV2 = lazy(() => import('./views/v2liquidity'))
+const SwapV1 = lazy(() => import('./views/v1swap'))
+const LiquidityV1 = lazy(() => import('./views/v1liquidity'))
 const Farms = lazy(() => import('./views/Farms'))
 // const Lottery = lazy(() => import('./views/Lottery'))
 // const Pools = lazy(() => import('./views/Pools'))
@@ -44,6 +48,18 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/v2swap">
+              <SwapV2 />
+              </Route>
+            <Route path="/v2Liquidity">
+              <LiquidityV2 />
+            </Route>
+            <Route path="/v1swap">
+              <SwapV1 />
+              </Route>
+            <Route path="/v1Liquidity">
+              <LiquidityV1 />
             </Route>
             <Route path="/honeycomb">
               <Farms />
