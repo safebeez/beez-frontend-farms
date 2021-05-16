@@ -71,7 +71,7 @@ const config: MenuEntry[] = [
       }
     ],
   }, */
-  {
+ /*  {
     label: 'Partnership?',
     icon: 'MoreIcon',
     items: [
@@ -84,7 +84,7 @@ const config: MenuEntry[] = [
         href: 'https://github.com/goosedefi/',
       },
     ],
-  },
+  }, */
 ]
 
 export default config

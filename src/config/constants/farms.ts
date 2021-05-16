@@ -8,12 +8,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'HNY-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0xeC7166261A0963B89EFdF78C09E7DC5E1266c217',
+      56: '0xA51B1d6396bb75953E9433af9Aa2D9cd3A3856b8',
     },
     tokenSymbol: 'HNY',
     tokenAddresses: {
       97: '',
-      56: '0x5FFa2807F9A8b762eDeEab4ca37211Ca3117df8A',
+      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -24,12 +24,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'HNY-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x361296b4FBb8d61e9961c772AF213eDC2D0486a7',
+      56: '0x970Db044f9397daA088DC94686438e12514fC85E',
     },
     tokenSymbol: 'HNY',
     tokenAddresses: {
       97: '',
-      56: '0x5FFa2807F9A8b762eDeEab4ca37211Ca3117df8A',
+      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
