@@ -60,9 +60,9 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" size="xl" mb="24px" color="danger">
-          {TranslateString(576, 'The Honey Hive')}
+          {TranslateString(576, 'The HNYCMB Hive')}
         </Heading>
-        <Text>{TranslateString(578, 'Get HONEY at the Honeycomb!')}</Text>
+        <Text>{TranslateString(578, 'Get HNYCMB at the Honeycomb!')}</Text>
       </Hero>
       <div>
         <Cards>

@@ -25,7 +25,7 @@ const Menu = (props) => {
       currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      beePriceUsd={beePriceUsd.toNumber()}
+      beePriceUsd={beePriceUsd.toNumber() * 1e9}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
       beePriceLink={ "https://poocoin.app/tokens/".concat( getBeeAddress() ) }

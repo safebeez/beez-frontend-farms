@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange HNY',
+        label: 'Exchange HNYCMB',
         href: '/v2swap',
       },
       {
-        label: 'HNY Liquidity',
+        label: 'HNYCMB Liquidity',
         href: '/v2liquidity',
       },
       {
@@ -30,12 +30,12 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Honeycomb',
+    label: 'Honeycomb Farms',
     icon: 'FarmIcon',
-    href: '/honeycomb',
+    href: '/Honeycomb',
   },
   {
-    label: 'Nests',
+    label: 'Honeycomb Pools',
     icon: 'PoolIcon',
     href: '/nests',
   },
@@ -46,6 +46,10 @@ const config: MenuEntry[] = [
       {
         label: 'PancakeSwap',
         href: 'https://pancakeswap.info/token/'.concat(getCakeAddress()),
+      },
+      {
+        label: 'PancakeSwap',
+        href: 'https://pancakeswap.info/token/'.concat(getBeeAddress()),
       },
       /* {
         label: 'CoinGecko',
@@ -61,7 +65,7 @@ const config: MenuEntry[] = [
       }, */
     ],
   },
-/*   {
+  {
     label: 'More',
     icon: 'MoreIcon',
     items: [
@@ -70,7 +74,7 @@ const config: MenuEntry[] = [
         href: 'https://gnce/',
       }
     ],
-  }, */
+  }, 
  /*  {
     label: 'Partnership?',
     icon: 'MoreIcon',

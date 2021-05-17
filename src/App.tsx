@@ -61,7 +61,7 @@ const App: React.FC = () => {
             <Route path="/v1Liquidity">
               <LiquidityV1 />
             </Route>
-            <Route path="/honeycomb">
+            <Route path="/Honeycomb">
               <Farms />
             </Route>
             <Route path="/nests">

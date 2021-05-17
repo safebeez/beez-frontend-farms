@@ -21,6 +21,7 @@ const CardImage = styled.img`
 `
 const Center = styled.div`
   text-align: center;
+  margin-bottom: 10px;
 `
 
 const Cards = styled(BaseLayout)`
@@ -46,18 +47,27 @@ const Cards = styled(BaseLayout)`
   }
 `
 
+const beeAddr = getBeeAddress()
+
+const urlLink = 'https://v1exchange.pancakeswap.finance/#/swap?outputCurrency='.concat(beeAddr)
+const Link = styled.a`
+  color: #00BBFF;
+`
+
 const SwapCard = () => {
   const TranslateString = useI18n()
-  const beeAddr = getBeeAddress()
   return (
     <StyledSwapCard>
       <CardBody>
         <Heading size="xl" mb="24px" >
           <CardImage src="/images/egg/3.png" alt="cake logo" width={64} height={64} />
-          <Center>{TranslateString(10007, 'BEEZ Swap & Liquidity')}</Center>
+          <Center>{TranslateString(10007, 'BEEZ Swap')}</Center>
         </Heading>
         <Center>
-          {"BEEZ Address: ".concat(getBeeAddress())}
+          {"BEEZ Address: ".concat(beeAddr)}
+        </Center>
+        <Center>
+          {"Not loading? Try "}<Link href={urlLink} target="_blank">THIS LINK</Link>
         </Center>
         <Block>
         <iframe title="V1 Swap"
