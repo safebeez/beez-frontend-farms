@@ -44,11 +44,11 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'PancakeSwap',
+        label: 'HNYCMB on PancakeSwap',
         href: 'https://pancakeswap.info/token/'.concat(getCakeAddress()),
       },
       {
-        label: 'PancakeSwap',
+        label: 'BEEZ on PancakeSwap',
         href: 'https://pancakeswap.info/token/'.concat(getBeeAddress()),
       },
       /* {
@@ -70,9 +70,13 @@ const config: MenuEntry[] = [
     icon: 'MoreIcon',
     items: [
       {
-        label: 'Docs',
-        href: 'https://gnce/',
-      }
+        label: 'Roadmap',
+        href: '/Roadmap',
+      },
+      {
+        label: 'Whitepaper',
+        href: '/Whitepaper',
+      },
     ],
   }, 
  /*  {

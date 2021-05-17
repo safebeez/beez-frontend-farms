@@ -17,10 +17,12 @@ const LiquidityV2 = lazy(() => import('./views/v2liquidity'))
 const SwapV1 = lazy(() => import('./views/v1swap'))
 const LiquidityV1 = lazy(() => import('./views/v1liquidity'))
 const Farms = lazy(() => import('./views/Farms'))
+const RoadMap = lazy(() => import('./views/roadmap'))
+const WhitePaper = lazy(() => import('./views/whitepaper'))
 // const Lottery = lazy(() => import('./views/Lottery'))
 // const Pools = lazy(() => import('./views/Pools'))
 // const Ifos = lazy(() => import('./views/Ifos'))
-const NotFound = lazy(() => import('./views/NotFound'))
+const NotFound = lazy(() => import('./views/Home'))
 // const Nft = lazy(() => import('./views/Nft'))
 
 // This config is required for number formating
@@ -66,6 +68,12 @@ const App: React.FC = () => {
             </Route>
             <Route path="/nests">
               <Farms tokenMode/>
+            </Route>
+            <Route path="/roadmap">
+              <RoadMap />
+            </Route>
+            <Route path="/whitepaper">
+              <WhitePaper />
             </Route>
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
