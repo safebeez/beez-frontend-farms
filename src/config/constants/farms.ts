@@ -3,9 +3,25 @@ import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
   {
+    pid: 5,
+    risk: 0,
+    lpSymbol: 'HNY-BEEZ LP (V2)',
+    lpAddresses: {
+      97: '',
+      56: '0xE7D73Ba4631653173d015D2C7b1B85E6689eda6B',
+    },
+    tokenSymbol: 'HNY',
+    tokenAddresses: {
+      97: '',
+      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
     pid: 0,
     risk: 5,
-    lpSymbol: 'HNY-BUSD LP',
+    lpSymbol: 'HNY-BUSD LP (V2)',
     lpAddresses: {
       97: '',
       56: '0xA51B1d6396bb75953E9433af9Aa2D9cd3A3856b8',
@@ -21,7 +37,7 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     risk: 5,
-    lpSymbol: 'HNY-BNB LP',
+    lpSymbol: 'HNY-BNB LP(V2)',
     lpAddresses: {
       97: '',
       56: '0x970Db044f9397daA088DC94686438e12514fC85E',
@@ -37,7 +53,7 @@ const farms: FarmConfig[] = [
   {
     pid: 2,
     risk: 3,
-    lpSymbol: 'BNB-BUSD LP',
+    lpSymbol: 'BNB-BUSD LP(V1)',
     lpAddresses: {
       97: '',
       56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
@@ -51,9 +67,25 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
+    pid: 6,
+    risk: 3,
+    lpSymbol: 'BNB-BUSD LP(V2)',
+    lpAddresses: {
+      97: '',
+      56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+    },
+    tokenSymbol: 'BNB',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
     pid: 3,
     risk: 3,
-    lpSymbol: 'BEEZ-BNB LP',
+    lpSymbol: 'BEEZ-BNB LP(V1)',
     lpAddresses: {
       97: '',
       56: '0xaaBCEB7549A4F476A28ad36d08D6051190CEf7a2',
@@ -66,23 +98,23 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
-  /* {
-    pid: 23,
+  {
+    pid: 4,
     risk: 3,
     isTokenOnly: true,
-    lpSymbol: 'AUTO',
+    lpSymbol: 'HNY (V2)',
     lpAddresses: {
       97: '',
-      56: '0x4d0228ebeb39f6d2f29ba528e2d15fc9121ead56', // AUTO-BNB LP
+      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B', // AUTO-BNB LP
     },
-    tokenSymbol: 'AUTO',
+    tokenSymbol: 'HNY',
     tokenAddresses: {
       97: '',
-      56: '0xa184088a740c695e156f91f5cc086a06bb78b827',
+      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
-  }, */
+  },
   /* {
     pid: 3,
     risk: 5,
