@@ -10,13 +10,13 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0xE7D73Ba4631653173d015D2C7b1B85E6689eda6B',
     },
-    tokenSymbol: 'HNY',
+    tokenSymbol: 'BEEZHNY',
     tokenAddresses: {
       97: '',
       56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.cake,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 0,
@@ -105,15 +105,15 @@ const farms: FarmConfig[] = [
     lpSymbol: 'HNY (V2)',
     lpAddresses: {
       97: '',
-      56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B', // AUTO-BNB LP
+      56: '0xA51B1d6396bb75953E9433af9Aa2D9cd3A3856b8', // HNY-BUSD LP
     },
     tokenSymbol: 'HNY',
     tokenAddresses: {
       97: '',
       56: '0x97212bAb58ea9562f4208B9c344212b96aFA7a1B',
     },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   /* {
     pid: 3,
