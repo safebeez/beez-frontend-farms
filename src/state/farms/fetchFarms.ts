@@ -6,6 +6,7 @@ import { getMasterChefAddress } from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/farms'
 import { QuoteToken } from '../../config/constants/types'
 
+
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 const fetchFarms = async () => {
@@ -57,24 +58,84 @@ const fetchFarms = async () => {
         quoteTokenDecimals
       ] = await multicall(erc20, calls)
 
+      let tokenAltBalanceLP
+      let quoteAltTokenBlanceLP
+
+      if(farmConfig.nonStandard){
+        const lpQuote = farmConfig.lpAddresses[97]
+        const calls2 = [
+          // Balance of token in the LP contract
+          {
+            address: farmConfig.tokenAddresses[CHAIN_ID],
+            name: 'balanceOf',
+            params: [lpQuote],
+          },
+          // Balance of quote token on LP contract
+          {
+            address: farmConfig.quoteTokenAdresses[CHAIN_ID],
+            name: 'balanceOf',
+            params: [lpQuote],
+          },
+        ]
+
+        const [
+          alt1,
+          alt2,
+        ] = await multicall(erc20, calls2)
+
+        tokenAltBalanceLP = alt1
+        quoteAltTokenBlanceLP = alt2
+      }
+
       let tokenAmount;
       let lpTotalInQuoteToken;
       let tokenPriceVsQuote;
-      if(farmConfig.isTokenOnly){
-        tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
+      if(farmConfig.isTokenOnly && farmConfig.nonStandard){
+        tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(18));
         if(farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD){
           tokenPriceVsQuote = new BigNumber(1);
         }else{
           tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
         }
         lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
+      }else if(farmConfig.isTokenOnly){
+        tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(18));
+        if(farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD){
+          tokenPriceVsQuote = new BigNumber(1);
+        }else{
+          tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+        }
+        lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
+
+      }else if(farmConfig.nonStandard){
+        // Ratio in % a LP tokens that are in staking, vs the total number in circulation
+        const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
+
+        // Total value in staking in quote token value
+        lpTotalInQuoteToken = new BigNumber(quoteAltTokenBlanceLP)
+          .div(new BigNumber(10).pow(quoteTokenDecimals))
+          .times(new BigNumber(2))
+          .times(lpTokenRatio)
+
+        // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
+        tokenAmount = new BigNumber(tokenAltBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
+        const quoteTokenAmount = new BigNumber(quoteAltTokenBlanceLP)
+          .div(new BigNumber(10).pow(quoteTokenDecimals))
+          .times(lpTokenRatio)
+
+        if(tokenAmount.comparedTo(0) > 0){
+          tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
+        }else{
+          tokenPriceVsQuote = new BigNumber(quoteAltTokenBlanceLP).div(new BigNumber(tokenAltBalanceLP));
+        }
+
       }else{
         // Ratio in % a LP tokens that are in staking, vs the total number in circulation
         const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
         // Total value in staking in quote token value
         lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
-          .div(new BigNumber(10).pow(18))
+          .div(new BigNumber(10).pow(quoteTokenDecimals))
           .times(new BigNumber(2))
           .times(lpTokenRatio)
 

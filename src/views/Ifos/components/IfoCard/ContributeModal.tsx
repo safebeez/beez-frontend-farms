@@ -17,7 +17,7 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
   const [value, setValue] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWallet()
-  const balance = getFullDisplayBalance(useTokenBalance(currencyAddress))
+  const balance = getFullDisplayBalance(useTokenBalance(currencyAddress), currency)
 
   return (
     <Modal title={`Contribute ${currency}`} onDismiss={onDismiss}>

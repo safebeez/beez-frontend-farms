@@ -18,7 +18,7 @@ const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDis
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
   const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(earnings)
+    return getFullDisplayBalance(earnings, "")
   }, [earnings])
 
   return (

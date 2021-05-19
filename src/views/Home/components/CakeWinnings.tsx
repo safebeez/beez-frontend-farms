@@ -5,7 +5,7 @@ import CardValue from './CardValue'
 
 const CakeWinnings = () => {
   const { claimAmount } = useTotalClaim()
-  return <CardValue value={getBalanceNumber(claimAmount)} />
+  return <CardValue value={getBalanceNumber(claimAmount, 0)} />
 }
 
 export default CakeWinnings

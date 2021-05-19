@@ -7,18 +7,18 @@ export const approve = async (lpContract, masterChefContract, account) => {
     .send({ from: account })
 }
 
-export const stake = async (masterChefContract, pid, amount, account) => {
+export const stake = async (masterChefContract, pid, amount, account, decimals) => {
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
 }
 
-export const sousStake = async (sousChefContract, amount, account) => {
+export const sousStake = async (sousChefContract, amount, account, decimals) => {
   return sousChefContract.methods
-    .deposit(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .deposit(new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
@@ -34,16 +34,16 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
     })
 }
 
-export const unstake = async (masterChefContract, pid, amount, account) => {
+export const unstake = async (masterChefContract, pid, amount, account, decimals) => {
   return masterChefContract.methods
-    .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
 }
 
-export const sousUnstake = async (sousChefContract, amount, account) => {
+export const sousUnstake = async (sousChefContract, amount, account, decimals) => {
   // shit code: hard fix for old CTK and BLK
   if (sousChefContract.options.address === '0x3B9B74f48E89Ebd8b45a53444327013a2308A9BC') {
     return sousChefContract.methods
@@ -62,7 +62,7 @@ export const sousUnstake = async (sousChefContract, amount, account) => {
       })
   }
   return sousChefContract.methods
-    .withdraw(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .withdraw(new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash

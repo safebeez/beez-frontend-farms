@@ -59,8 +59,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { account } = useWallet()
   const block = useBlock()
   const { onApprove } = useSousApprove(stakingTokenContract, sousId)
-  const { onStake } = useSousStake(sousId, isBnbPool)
-  const { onUnstake } = useSousUnstake(sousId)
+  const { onStake } = useSousStake(sousId, isBnbPool, tokenDecimals)
+  const { onUnstake } = useSousUnstake(sousId, tokenDecimals) 
   const { onReward } = useSousHarvest(sousId, isBnbPool)
 
   const [requestedApproval, setRequestedApproval] = useState(false)
@@ -133,7 +133,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </div>
         {!isOldSyrup ? (
           <BalanceAndCompound>
-            <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
+            <Balance value={getBalanceNumber(earnings, 0)} isDisabled={isFinished} />
             {sousId === 0 && account && harvest && (
               <HarvestButton
                 disabled={!earnings.toNumber() || pendingTx}
@@ -195,7 +195,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             </span>
             {TranslateString(384, 'Your Stake')}:
           </div>
-          <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
+          <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance, 0)} />
         </StyledDetails>
       </div>
       <CardFooter

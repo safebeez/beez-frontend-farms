@@ -29,7 +29,7 @@ const StyledCard = styled(Card)`
 const YourPrizesCard: React.FC = () => {
   const { claimAmount } = useTotalClaim()
 
-  const winnings = getBalanceNumber(claimAmount)
+  const winnings = getBalanceNumber(claimAmount, 0)
   const isAWin = winnings > 0
 
   return (

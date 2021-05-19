@@ -5,6 +5,7 @@ import ModalActions from 'components/ModalActions'
 import TokenInput from 'components/TokenInput'
 import useI18n from 'hooks/useI18n'
 import { getFullDisplayBalance } from 'utils/formatBalance'
+import Balance from 'components/Balance'
 
 interface DepositModalProps {
   max: BigNumber
@@ -18,9 +19,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
-  const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(max)
-  }, [max])
+  const fullBalance = getFullDisplayBalance(max, tokenName)
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {

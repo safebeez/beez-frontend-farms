@@ -59,7 +59,7 @@ const PrizesWonContent: React.FC = () => {
     }
   }, [onMultiClaim, setRequestedClaim])
 
-  const winnings = getBalanceNumber(claimAmount).toFixed(2)
+  const winnings = getBalanceNumber(claimAmount, 0).toFixed(2)
 
   return (
     <StyledCardContentInner>

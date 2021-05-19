@@ -38,7 +38,7 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
   const { account } = useWallet()
   const rabbitMintingContract = useRabbitMintingFarm(RABBIT_MINTING_FARM_ADDRESS)
   const cakeBalance = useTokenBalance(getCakeAddress())
-  const cakeInWallet = getBalanceNumber(cakeBalance)
+  const cakeInWallet = getBalanceNumber(cakeBalance, 0)
 
   const handleConfirm = async () => {
     try {

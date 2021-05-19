@@ -52,7 +52,7 @@ const TotalPrizesCard = () => {
   const TranslateString = useI18n()
   const { account } = useWallet()
   const [showFooter, setShowFooter] = useState(false)
-  const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards()).toFixed(0)
+  const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards(), 0).toFixed(0)
   const lotteryPrizeWithCommaSeparators = lotteryPrizeAmount.toLocaleString()
   const { currentLotteryNumber } = useContext(PastLotteryDataContext)
 
