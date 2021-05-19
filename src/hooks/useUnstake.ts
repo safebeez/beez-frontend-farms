@@ -10,8 +10,9 @@ import {
 import { unstake, sousUnstake, sousEmegencyUnstake } from 'utils/callHelpers'
 import { useMasterchef, useSousChef } from './useContract'
 
-let decimals = 18
+let decimals
 const useUnstake = (pid: number) => {
+  decimals = 18
   if(pid === 7)
     decimals = 9
   const dispatch = useDispatch()
@@ -33,7 +34,7 @@ const useUnstake = (pid: number) => {
 const SYRUPIDS = [5, 6, 3, 1, 22, 23]
 
 export const useSousUnstake = (sousId, dec) => {
-  decimals = 9
+  decimals = dec
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()

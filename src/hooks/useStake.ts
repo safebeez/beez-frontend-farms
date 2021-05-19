@@ -7,6 +7,7 @@ import { useMasterchef, useSousChef } from './useContract'
 
 let decimals = 18
 const useStake = (pid: number) => {
+  decimals = 18
   if(pid === 7)
     decimals = 9
   const dispatch = useDispatch()
